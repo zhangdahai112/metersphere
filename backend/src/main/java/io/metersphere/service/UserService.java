@@ -482,7 +482,7 @@ public class UserService {
             Workspace workspace = workspaceMapper.selectByPrimaryKey(sourceId);
             user.setLastOrganizationId(workspace.getOrganizationId());
             user.setLastWorkspaceId(sourceId);
-            getProjectListByWsAndUserId(sourceId)
+            List<Project> projects = getProjectListByWsAndUserId(sourceId);
             if (projects.size() > 0) {
                 user.setLastProjectId(projects.get(0).getId());
             } else {
